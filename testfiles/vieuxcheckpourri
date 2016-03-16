@@ -1,0 +1,45 @@
+	int i;
+	int ctetr;
+	//char line[5];
+	int nbtetr;
+	int e;
+	int j;
+
+	e = 0;
+	ctetr = 0;
+	i = 0;
+	nbtetr = 0;
+
+	while (1)
+	{
+		if (i < 4)
+		{
+			read(file, buffer, BUFF_SIZE);
+			printf("%s", buffer);
+			if(checkline(buffer, 1))
+				i++;
+			else
+				errmsg(0);
+		}
+		else
+		{
+			nbtetr++;
+			e = 1;
+		}
+	
+		if (e)
+		{
+			e = 0;
+			i = 0;
+			j = read(file, buffer, 1);
+			printf("%s", buffer);
+			if (j == 0)
+				return (nbtetr);
+			else if (j == -1)
+				errmsg(0);
+			if(!checkline(buffer, 2))
+			   errmsg(0);
+		}
+		//checktetr
+		return (0);
+	}
